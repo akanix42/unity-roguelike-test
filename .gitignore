@@ -1,0 +1,24 @@
+# Windows
+Thumbs.db
+
+# Mac
+.DS_Store
+
+# Unity
+Library
+Temp
+*.unitypackage
+*-CSharp*.csproj
+
+# Xamarin
+obj
+*.userprefs
+test-results
+
+# Rider
+.idea/
+
+# Custom
+roguelike-test.sln
+Assets/Plugins
+Assets/Plugins.meta
