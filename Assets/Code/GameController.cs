@@ -9,16 +9,41 @@ public class GameController : MonoBehaviour
 
   private Services _services;
 
-  void Start()
+  void Awake()
   {
     _contexts = Contexts.sharedInstance;
-    _services = CreateServices();
+    _services = CreateServices(_contexts, this);
+  }
+
+  void Start()
+  {
     _systems = CreateSystems(_contexts, _services);
     _systems.Initialize();
 
     _contexts.game.isMainGameScreen = true;
-    var entity = _contexts.game.CreateEntity();
-    entity.isTargetedByUi = true;
+
+    _contexts.game.ReplaceLevelId(0);
+
+    var level = _services.level.CreateLevel();
+    
+    for (var x = 0; x < level.level.columns; x++)
+    {
+      for (var y = 0; y < level.level.columns; y++)
+      {
+        var entity = _contexts.game.CreateEntity();
+        entity.isTargetedByUi = true;
+        entity.AddAsset("Tile");
+//    entity.AddAsciiSprite("DejaVuSansMono_2");
+        entity.AddAsciiSprite("hashtag");
+        entity.AddPosition(level.level.id, x, y);
+        entity.isTile = true;
+//    entity.AddVisible(1);
+//    entity.isVisible = false;
+        entity.isVisible = true;
+      }
+      
+    }
+    
   }
 
   void Update()
@@ -27,20 +52,24 @@ public class GameController : MonoBehaviour
     _systems.Cleanup();
   }
 
-  private static Services CreateServices()
+  private static Services CreateServices(Contexts contexts, GameController gameController)
   {
-    return new Services()
-    {
-      log = new UnityDebugLogService(),
-      input = new UnityInputService(),
-    };
+    return new Services(
+      new UnityDebugLogService(),
+      new UnityInputService(),
+      new SpritesService(),
+      new LevelService(contexts),
+      new ViewService(contexts, gameController.transform)
+    );
   }
-  
+
   private static Systems CreateSystems(Contexts contexts, Services services)
   {
     return new Feature("Systems")
+        .Add(new ServiceRegistrationSystem(contexts, services))
         .Add(new LogDebugMessageSystem(contexts, services.log))
         .Add(new InputFeature(contexts, services.input))
+        .Add(new GameEventSystems(contexts))
       ;
   }
 }

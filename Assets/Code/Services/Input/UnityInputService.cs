@@ -79,7 +79,7 @@ public sealed class UnityInputService : IInputService
       }
       
       var keysHeld = _keyCodes.Where(Input.GetKey).Except(_modifierKeys);
-      Debug.Log($"Keys held: {keysHeld.Count()}");
+//      Debug.Log($"Keys held: {keysHeld.Count()}");
       return keysHeld.Select(keycode => new GameKey(keycode, modifiers)).ToList();
     }
   }

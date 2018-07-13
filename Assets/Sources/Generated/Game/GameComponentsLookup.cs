@@ -8,39 +8,51 @@
 //------------------------------------------------------------------------------
 public static class GameComponentsLookup {
 
-    public const int Asset = 0;
-    public const int AssetListener = 1;
-    public const int AttackMoveCommand = 2;
-    public const int DebugLog = 3;
-    public const int Destroyed = 4;
-    public const int DirectionUpCommand = 5;
-    public const int DisplayingInventory = 6;
-    public const int Floor = 7;
-    public const int GenerateLevelSystem = 8;
-    public const int Interactive = 9;
-    public const int Level = 10;
-    public const int LevelId = 11;
-    public const int LogDebugMessageSystem = 12;
-    public const int MainGameScreen = 13;
-    public const int Movable = 14;
-    public const int Position = 15;
-    public const int TargetedByUi = 16;
-    public const int Tile = 17;
-    public const int UngeneratedLevel = 18;
-    public const int ViewInventoryCommand = 19;
-    public const int ViewInventoryScreenSystem = 20;
+    public const int AsciiSprite = 0;
+    public const int AsciiSpriteListener = 1;
+    public const int Asset = 2;
+    public const int AssetListener = 3;
+    public const int AttackMoveCommand = 4;
+    public const int DebugLog = 5;
+    public const int Destroyed = 6;
+    public const int DestroyedListener = 7;
+    public const int DirectionUpCommand = 8;
+    public const int DisplayingInventory = 9;
+    public const int Floor = 10;
+    public const int GameBoard = 11;
+    public const int GenerateLevelSystem = 12;
+    public const int Interactive = 13;
+    public const int Level = 14;
+    public const int LevelId = 15;
+    public const int LogDebugMessageSystem = 16;
+    public const int MainGameScreen = 17;
+    public const int Movable = 18;
+    public const int Position = 19;
+    public const int PositionListener = 20;
+    public const int TargetedByUi = 21;
+    public const int Tile = 22;
+    public const int UngeneratedLevel = 23;
+    public const int ViewInventoryCommand = 24;
+    public const int ViewInventoryScreenSystem = 25;
+    public const int Visible = 26;
+    public const int VisibleListener = 27;
+    public const int VisibleRemovedListener = 28;
 
-    public const int TotalComponents = 21;
+    public const int TotalComponents = 29;
 
     public static readonly string[] componentNames = {
+        "AsciiSprite",
+        "AsciiSpriteListener",
         "Asset",
         "AssetListener",
         "AttackMoveCommand",
         "DebugLog",
         "Destroyed",
+        "DestroyedListener",
         "DirectionUpCommand",
         "DisplayingInventory",
         "Floor",
+        "GameBoard",
         "GenerateLevelSystem",
         "Interactive",
         "Level",
@@ -49,22 +61,30 @@ public static class GameComponentsLookup {
         "MainGameScreen",
         "Movable",
         "Position",
+        "PositionListener",
         "TargetedByUi",
         "Tile",
         "UngeneratedLevel",
         "ViewInventoryCommand",
-        "ViewInventoryScreenSystem"
+        "ViewInventoryScreenSystem",
+        "Visible",
+        "VisibleListener",
+        "VisibleRemovedListener"
     };
 
     public static readonly System.Type[] componentTypes = {
+        typeof(AsciiSpriteComponent),
+        typeof(AsciiSpriteListenerComponent),
         typeof(AssetComponent),
         typeof(AssetListenerComponent),
         typeof(AttackMoveCommand),
         typeof(DebugLogComponent),
         typeof(DestroyedComponent),
+        typeof(DestroyedListenerComponent),
         typeof(DirectionUpCommand),
         typeof(DisplayingInventoryComponent),
         typeof(FloorComponent),
+        typeof(GameBoardComponent),
         typeof(GenerateLevelSystemComponent),
         typeof(InteractiveComponent),
         typeof(LevelComponent),
@@ -73,10 +93,14 @@ public static class GameComponentsLookup {
         typeof(MainGameScreenComponent),
         typeof(MovableComponent),
         typeof(PositionComponent),
+        typeof(PositionListenerComponent),
         typeof(TargetedByUiComponent),
         typeof(TileComponent),
         typeof(UngeneratedLevelComponent),
         typeof(ViewInventoryCommand),
-        typeof(ViewInventoryScreenSystemComponent)
+        typeof(ViewInventoryScreenSystemComponent),
+        typeof(VisibleComponent),
+        typeof(VisibleListenerComponent),
+        typeof(VisibleRemovedListenerComponent)
     };
 }

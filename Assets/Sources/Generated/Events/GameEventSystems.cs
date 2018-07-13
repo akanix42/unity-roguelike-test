@@ -9,6 +9,11 @@
 public sealed class GameEventSystems : Feature {
 
     public GameEventSystems(Contexts contexts) {
+        Add(new AsciiSpriteEventSystem(contexts)); // priority: 0
         Add(new AssetEventSystem(contexts)); // priority: 0
+        Add(new DestroyedEventSystem(contexts)); // priority: 0
+        Add(new PositionEventSystem(contexts)); // priority: 0
+        Add(new VisibleEventSystem(contexts)); // priority: 0
+        Add(new VisibleRemovedEventSystem(contexts)); // priority: 0
     }
 }

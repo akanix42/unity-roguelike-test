@@ -1,0 +1,1 @@
+magick convert -background none -gravity center -trim -resize 64x64 -extent 64x64 -fill white -font dejavu.ttf -pointsize 96 label:"#" hashtag.png 
