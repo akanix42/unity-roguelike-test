@@ -7,13 +7,13 @@ public class LevelService
     _contexts = contexts;
   }
 
-  public GameEntity CreateLevel()
+  public LevelEntity CreateLevel()
   {
-    var game = _contexts.game;
-    var entity = game.CreateEntity();
-    entity.AddLevel(game.levelId.nextId, 5, 5);
+    var levelContext = _contexts.level;
+    var entity = levelContext.CreateEntity();
+    entity.AddLevel(levelContext.levelId.nextId, 10, 10);
     entity.isUngeneratedLevel = true;
-    game.ReplaceLevelId(game.levelId.nextId + 1);
+    levelContext.ReplaceLevelId(levelContext.levelId.nextId + 1);
     return entity;
   }
 }

@@ -66,17 +66,17 @@ public partial class Contexts {
 
     [Entitas.CodeGeneration.Attributes.PostConstructor]
     public void InitializeEntityIndices() {
-        game.AddEntityIndex(new Entitas.PrimaryEntityIndex<GameEntity, int>(
+        level.AddEntityIndex(new Entitas.PrimaryEntityIndex<LevelEntity, int>(
             Level,
-            game.GetGroup(GameMatcher.Level),
+            level.GetGroup(LevelMatcher.Level),
             (e, c) => ((LevelComponent)c).id));
     }
 }
 
 public static class ContextsExtensions {
 
-    public static GameEntity GetEntityWithLevel(this GameContext context, int id) {
-        return ((Entitas.PrimaryEntityIndex<GameEntity, int>)context.GetEntityIndex(Contexts.Level)).GetEntity(id);
+    public static LevelEntity GetEntityWithLevel(this LevelContext context, int id) {
+        return ((Entitas.PrimaryEntityIndex<LevelEntity, int>)context.GetEntityIndex(Contexts.Level)).GetEntity(id);
     }
 }
 //------------------------------------------------------------------------------

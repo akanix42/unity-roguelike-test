@@ -6,13 +6,13 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-public partial class GameContext {
+public partial class LevelContext {
 
-    public GameEntity gameBoardEntity { get { return GetGroup(GameMatcher.GameBoard).GetSingleEntity(); } }
+    public LevelEntity gameBoardEntity { get { return GetGroup(LevelMatcher.GameBoard).GetSingleEntity(); } }
     public GameBoardComponent gameBoard { get { return gameBoardEntity.gameBoard; } }
     public bool hasGameBoard { get { return gameBoardEntity != null; } }
 
-    public GameEntity SetGameBoard(int newLevelId, int newColumns, int newRows) {
+    public LevelEntity SetGameBoard(int newLevelId, int newColumns, int newRows) {
         if (hasGameBoard) {
             throw new Entitas.EntitasException("Could not set GameBoard!\n" + this + " already has an entity with GameBoardComponent!",
                 "You should check if the context already has a gameBoardEntity before setting it or use context.ReplaceGameBoard().");
@@ -44,13 +44,13 @@ public partial class GameContext {
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-public partial class GameEntity {
+public partial class LevelEntity {
 
-    public GameBoardComponent gameBoard { get { return (GameBoardComponent)GetComponent(GameComponentsLookup.GameBoard); } }
-    public bool hasGameBoard { get { return HasComponent(GameComponentsLookup.GameBoard); } }
+    public GameBoardComponent gameBoard { get { return (GameBoardComponent)GetComponent(LevelComponentsLookup.GameBoard); } }
+    public bool hasGameBoard { get { return HasComponent(LevelComponentsLookup.GameBoard); } }
 
     public void AddGameBoard(int newLevelId, int newColumns, int newRows) {
-        var index = GameComponentsLookup.GameBoard;
+        var index = LevelComponentsLookup.GameBoard;
         var component = CreateComponent<GameBoardComponent>(index);
         component.levelId = newLevelId;
         component.columns = newColumns;
@@ -59,7 +59,7 @@ public partial class GameEntity {
     }
 
     public void ReplaceGameBoard(int newLevelId, int newColumns, int newRows) {
-        var index = GameComponentsLookup.GameBoard;
+        var index = LevelComponentsLookup.GameBoard;
         var component = CreateComponent<GameBoardComponent>(index);
         component.levelId = newLevelId;
         component.columns = newColumns;
@@ -68,7 +68,7 @@ public partial class GameEntity {
     }
 
     public void RemoveGameBoard() {
-        RemoveComponent(GameComponentsLookup.GameBoard);
+        RemoveComponent(LevelComponentsLookup.GameBoard);
     }
 }
 
@@ -80,15 +80,15 @@ public partial class GameEntity {
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-public sealed partial class GameMatcher {
+public sealed partial class LevelMatcher {
 
-    static Entitas.IMatcher<GameEntity> _matcherGameBoard;
+    static Entitas.IMatcher<LevelEntity> _matcherGameBoard;
 
-    public static Entitas.IMatcher<GameEntity> GameBoard {
+    public static Entitas.IMatcher<LevelEntity> GameBoard {
         get {
             if (_matcherGameBoard == null) {
-                var matcher = (Entitas.Matcher<GameEntity>)Entitas.Matcher<GameEntity>.AllOf(GameComponentsLookup.GameBoard);
-                matcher.componentNames = GameComponentsLookup.componentNames;
+                var matcher = (Entitas.Matcher<LevelEntity>)Entitas.Matcher<LevelEntity>.AllOf(LevelComponentsLookup.GameBoard);
+                matcher.componentNames = LevelComponentsLookup.componentNames;
                 _matcherGameBoard = matcher;
             }
 

@@ -19,26 +19,22 @@ public static class GameComponentsLookup {
     public const int DirectionUpCommand = 8;
     public const int DisplayingInventory = 9;
     public const int Floor = 10;
-    public const int GameBoard = 11;
-    public const int GenerateLevelSystem = 12;
-    public const int Interactive = 13;
-    public const int Level = 14;
-    public const int LevelId = 15;
-    public const int LogDebugMessageSystem = 16;
-    public const int MainGameScreen = 17;
-    public const int Movable = 18;
-    public const int Position = 19;
-    public const int PositionListener = 20;
-    public const int TargetedByUi = 21;
-    public const int Tile = 22;
-    public const int UngeneratedLevel = 23;
-    public const int ViewInventoryCommand = 24;
-    public const int ViewInventoryScreenSystem = 25;
-    public const int Visible = 26;
-    public const int VisibleListener = 27;
-    public const int VisibleRemovedListener = 28;
+    public const int GenerateLevelSystem = 11;
+    public const int Interactive = 12;
+    public const int LogDebugMessageSystem = 13;
+    public const int MainGameScreen = 14;
+    public const int Movable = 15;
+    public const int Position = 16;
+    public const int PositionListener = 17;
+    public const int TargetedByUi = 18;
+    public const int Tile = 19;
+    public const int ViewInventoryCommand = 20;
+    public const int ViewInventoryScreenSystem = 21;
+    public const int Visible = 22;
+    public const int VisibleListener = 23;
+    public const int VisibleRemovedListener = 24;
 
-    public const int TotalComponents = 29;
+    public const int TotalComponents = 25;
 
     public static readonly string[] componentNames = {
         "AsciiSprite",
@@ -52,11 +48,8 @@ public static class GameComponentsLookup {
         "DirectionUpCommand",
         "DisplayingInventory",
         "Floor",
-        "GameBoard",
         "GenerateLevelSystem",
         "Interactive",
-        "Level",
-        "LevelId",
         "LogDebugMessageSystem",
         "MainGameScreen",
         "Movable",
@@ -64,7 +57,6 @@ public static class GameComponentsLookup {
         "PositionListener",
         "TargetedByUi",
         "Tile",
-        "UngeneratedLevel",
         "ViewInventoryCommand",
         "ViewInventoryScreenSystem",
         "Visible",
@@ -84,11 +76,8 @@ public static class GameComponentsLookup {
         typeof(DirectionUpCommand),
         typeof(DisplayingInventoryComponent),
         typeof(FloorComponent),
-        typeof(GameBoardComponent),
         typeof(GenerateLevelSystemComponent),
         typeof(InteractiveComponent),
-        typeof(LevelComponent),
-        typeof(LevelIdComponent),
         typeof(LogDebugMessageSystemComponent),
         typeof(MainGameScreenComponent),
         typeof(MovableComponent),
@@ -96,7 +85,6 @@ public static class GameComponentsLookup {
         typeof(PositionListenerComponent),
         typeof(TargetedByUiComponent),
         typeof(TileComponent),
-        typeof(UngeneratedLevelComponent),
         typeof(ViewInventoryCommand),
         typeof(ViewInventoryScreenSystemComponent),
         typeof(VisibleComponent),

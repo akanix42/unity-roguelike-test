@@ -22,27 +22,27 @@ public class GameController : MonoBehaviour
 
     _contexts.game.isMainGameScreen = true;
 
-    _contexts.game.ReplaceLevelId(0);
+    _contexts.level.ReplaceLevelId(0);
 
     var level = _services.level.CreateLevel();
     
-    for (var x = 0; x < level.level.columns; x++)
-    {
-      for (var y = 0; y < level.level.columns; y++)
-      {
-        var entity = _contexts.game.CreateEntity();
-        entity.isTargetedByUi = true;
-        entity.AddAsset("Tile");
-//    entity.AddAsciiSprite("DejaVuSansMono_2");
-        entity.AddAsciiSprite("hashtag");
-        entity.AddPosition(level.level.id, x, y);
-        entity.isTile = true;
-//    entity.AddVisible(1);
-//    entity.isVisible = false;
-        entity.isVisible = true;
-      }
-      
-    }
+//    for (var x = 0; x < level.level.columns; x++)
+//    {
+//      for (var y = 0; y < level.level.columns; y++)
+//      {
+//        var entity = _contexts.game.CreateEntity();
+//        entity.isTargetedByUi = true;
+//        entity.AddAsset("Tile");
+////    entity.AddAsciiSprite("DejaVuSansMono_2");
+//        entity.AddAsciiSprite("hashtag");
+//        entity.AddPosition(level.level.id, x, y);
+//        entity.isTile = true;
+//        entity.isVisible = true;
+////    entity.AddVisible(1);
+////    entity.isVisible = false;
+//      }
+//      
+//    }
     
   }
 
@@ -68,7 +68,13 @@ public class GameController : MonoBehaviour
     return new Feature("Systems")
         .Add(new ServiceRegistrationSystem(contexts, services))
         .Add(new LogDebugMessageSystem(contexts, services.log))
+        // Input
         .Add(new InputFeature(contexts, services.input))
+        
+        // Update
+        .Add(new GenerateLevelSystem(contexts))
+        
+        // Events
         .Add(new GameEventSystems(contexts))
       ;
   }

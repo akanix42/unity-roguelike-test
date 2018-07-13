@@ -6,13 +6,13 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-public partial class GameEntity {
+public partial class LevelEntity {
 
-    public LevelComponent level { get { return (LevelComponent)GetComponent(GameComponentsLookup.Level); } }
-    public bool hasLevel { get { return HasComponent(GameComponentsLookup.Level); } }
+    public LevelComponent level { get { return (LevelComponent)GetComponent(LevelComponentsLookup.Level); } }
+    public bool hasLevel { get { return HasComponent(LevelComponentsLookup.Level); } }
 
     public void AddLevel(int newId, int newColumns, int newRows) {
-        var index = GameComponentsLookup.Level;
+        var index = LevelComponentsLookup.Level;
         var component = CreateComponent<LevelComponent>(index);
         component.id = newId;
         component.columns = newColumns;
@@ -21,7 +21,7 @@ public partial class GameEntity {
     }
 
     public void ReplaceLevel(int newId, int newColumns, int newRows) {
-        var index = GameComponentsLookup.Level;
+        var index = LevelComponentsLookup.Level;
         var component = CreateComponent<LevelComponent>(index);
         component.id = newId;
         component.columns = newColumns;
@@ -30,7 +30,7 @@ public partial class GameEntity {
     }
 
     public void RemoveLevel() {
-        RemoveComponent(GameComponentsLookup.Level);
+        RemoveComponent(LevelComponentsLookup.Level);
     }
 }
 
@@ -42,15 +42,15 @@ public partial class GameEntity {
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-public sealed partial class GameMatcher {
+public sealed partial class LevelMatcher {
 
-    static Entitas.IMatcher<GameEntity> _matcherLevel;
+    static Entitas.IMatcher<LevelEntity> _matcherLevel;
 
-    public static Entitas.IMatcher<GameEntity> Level {
+    public static Entitas.IMatcher<LevelEntity> Level {
         get {
             if (_matcherLevel == null) {
-                var matcher = (Entitas.Matcher<GameEntity>)Entitas.Matcher<GameEntity>.AllOf(GameComponentsLookup.Level);
-                matcher.componentNames = GameComponentsLookup.componentNames;
+                var matcher = (Entitas.Matcher<LevelEntity>)Entitas.Matcher<LevelEntity>.AllOf(LevelComponentsLookup.Level);
+                matcher.componentNames = LevelComponentsLookup.componentNames;
                 _matcherLevel = matcher;
             }
 

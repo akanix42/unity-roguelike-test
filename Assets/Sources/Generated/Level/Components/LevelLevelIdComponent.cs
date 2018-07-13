@@ -6,13 +6,13 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-public partial class GameContext {
+public partial class LevelContext {
 
-    public GameEntity levelIdEntity { get { return GetGroup(GameMatcher.LevelId).GetSingleEntity(); } }
+    public LevelEntity levelIdEntity { get { return GetGroup(LevelMatcher.LevelId).GetSingleEntity(); } }
     public LevelIdComponent levelId { get { return levelIdEntity.levelId; } }
     public bool hasLevelId { get { return levelIdEntity != null; } }
 
-    public GameEntity SetLevelId(int newNextId) {
+    public LevelEntity SetLevelId(int newNextId) {
         if (hasLevelId) {
             throw new Entitas.EntitasException("Could not set LevelId!\n" + this + " already has an entity with LevelIdComponent!",
                 "You should check if the context already has a levelIdEntity before setting it or use context.ReplaceLevelId().");
@@ -44,27 +44,27 @@ public partial class GameContext {
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-public partial class GameEntity {
+public partial class LevelEntity {
 
-    public LevelIdComponent levelId { get { return (LevelIdComponent)GetComponent(GameComponentsLookup.LevelId); } }
-    public bool hasLevelId { get { return HasComponent(GameComponentsLookup.LevelId); } }
+    public LevelIdComponent levelId { get { return (LevelIdComponent)GetComponent(LevelComponentsLookup.LevelId); } }
+    public bool hasLevelId { get { return HasComponent(LevelComponentsLookup.LevelId); } }
 
     public void AddLevelId(int newNextId) {
-        var index = GameComponentsLookup.LevelId;
+        var index = LevelComponentsLookup.LevelId;
         var component = CreateComponent<LevelIdComponent>(index);
         component.nextId = newNextId;
         AddComponent(index, component);
     }
 
     public void ReplaceLevelId(int newNextId) {
-        var index = GameComponentsLookup.LevelId;
+        var index = LevelComponentsLookup.LevelId;
         var component = CreateComponent<LevelIdComponent>(index);
         component.nextId = newNextId;
         ReplaceComponent(index, component);
     }
 
     public void RemoveLevelId() {
-        RemoveComponent(GameComponentsLookup.LevelId);
+        RemoveComponent(LevelComponentsLookup.LevelId);
     }
 }
 
@@ -76,15 +76,15 @@ public partial class GameEntity {
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-public sealed partial class GameMatcher {
+public sealed partial class LevelMatcher {
 
-    static Entitas.IMatcher<GameEntity> _matcherLevelId;
+    static Entitas.IMatcher<LevelEntity> _matcherLevelId;
 
-    public static Entitas.IMatcher<GameEntity> LevelId {
+    public static Entitas.IMatcher<LevelEntity> LevelId {
         get {
             if (_matcherLevelId == null) {
-                var matcher = (Entitas.Matcher<GameEntity>)Entitas.Matcher<GameEntity>.AllOf(GameComponentsLookup.LevelId);
-                matcher.componentNames = GameComponentsLookup.componentNames;
+                var matcher = (Entitas.Matcher<LevelEntity>)Entitas.Matcher<LevelEntity>.AllOf(LevelComponentsLookup.LevelId);
+                matcher.componentNames = LevelComponentsLookup.componentNames;
                 _matcherLevelId = matcher;
             }
 

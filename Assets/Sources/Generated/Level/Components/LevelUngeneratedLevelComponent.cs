@@ -6,15 +6,15 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-public partial class GameEntity {
+public partial class LevelEntity {
 
     static readonly UngeneratedLevelComponent ungeneratedLevelComponent = new UngeneratedLevelComponent();
 
     public bool isUngeneratedLevel {
-        get { return HasComponent(GameComponentsLookup.UngeneratedLevel); }
+        get { return HasComponent(LevelComponentsLookup.UngeneratedLevel); }
         set {
             if (value != isUngeneratedLevel) {
-                var index = GameComponentsLookup.UngeneratedLevel;
+                var index = LevelComponentsLookup.UngeneratedLevel;
                 if (value) {
                     var componentPool = GetComponentPool(index);
                     var component = componentPool.Count > 0
@@ -38,15 +38,15 @@ public partial class GameEntity {
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-public sealed partial class GameMatcher {
+public sealed partial class LevelMatcher {
 
-    static Entitas.IMatcher<GameEntity> _matcherUngeneratedLevel;
+    static Entitas.IMatcher<LevelEntity> _matcherUngeneratedLevel;
 
-    public static Entitas.IMatcher<GameEntity> UngeneratedLevel {
+    public static Entitas.IMatcher<LevelEntity> UngeneratedLevel {
         get {
             if (_matcherUngeneratedLevel == null) {
-                var matcher = (Entitas.Matcher<GameEntity>)Entitas.Matcher<GameEntity>.AllOf(GameComponentsLookup.UngeneratedLevel);
-                matcher.componentNames = GameComponentsLookup.componentNames;
+                var matcher = (Entitas.Matcher<LevelEntity>)Entitas.Matcher<LevelEntity>.AllOf(LevelComponentsLookup.UngeneratedLevel);
+                matcher.componentNames = LevelComponentsLookup.componentNames;
                 _matcherUngeneratedLevel = matcher;
             }
 

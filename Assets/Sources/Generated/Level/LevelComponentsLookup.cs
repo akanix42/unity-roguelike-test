@@ -8,15 +8,24 @@
 //------------------------------------------------------------------------------
 public static class LevelComponentsLookup {
 
+    public const int GameBoard = 0;
+    public const int Level = 1;
+    public const int LevelId = 2;
+    public const int UngeneratedLevel = 3;
 
-
-    public const int TotalComponents = 0;
+    public const int TotalComponents = 4;
 
     public static readonly string[] componentNames = {
-
+        "GameBoard",
+        "Level",
+        "LevelId",
+        "UngeneratedLevel"
     };
 
     public static readonly System.Type[] componentTypes = {
-
+        typeof(GameBoardComponent),
+        typeof(LevelComponent),
+        typeof(LevelIdComponent),
+        typeof(UngeneratedLevelComponent)
     };
 }

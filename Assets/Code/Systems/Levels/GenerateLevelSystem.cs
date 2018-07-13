@@ -2,27 +2,27 @@ using System.Collections.Generic;
 using Entitas;
 using Entitas.Unity;
 
-[Game]
-public sealed class GenerateLevelSystem : ReactiveSystem<GameEntity>
+[Level]
+public sealed class GenerateLevelSystem : ReactiveSystem<LevelEntity>
 {
   readonly GameContext _game;
 
-  public GenerateLevelSystem(Contexts contexts): base(contexts.game)
+  public GenerateLevelSystem(Contexts contexts): base(contexts.level)
   {
     _game = contexts.game;
   }
 
-  protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
+  protected override ICollector<LevelEntity> GetTrigger(IContext<LevelEntity> context)
   {
-    return context.CreateCollector(GameMatcher.UngeneratedLevel);
+    return context.CreateCollector(LevelMatcher.UngeneratedLevel);
   }
 
-  protected override bool Filter(GameEntity entity)
+  protected override bool Filter(LevelEntity entity)
   {
     return entity.isUngeneratedLevel;
   }
 
-  protected override void Execute(List<GameEntity> entities)
+  protected override void Execute(List<LevelEntity> entities)
   {
     foreach (var entity in entities)
     {
@@ -31,7 +31,7 @@ public sealed class GenerateLevelSystem : ReactiveSystem<GameEntity>
     }
   }
 
-  private void GenerateLevel(GameEntity levelEntity)
+  private void GenerateLevel(LevelEntity levelEntity)
   {
     var level = levelEntity.level;
     for (var x = 0; x < level.columns; x++)
@@ -42,7 +42,14 @@ public sealed class GenerateLevelSystem : ReactiveSystem<GameEntity>
         tile.isTile = true;
         tile.AddPosition(level.id, x, y);
         tile.AddFloor("dirt");
+        tile.AddAsset("Tile");
+//    entity.AddAsciiSprite("DejaVuSansMono_2");
+        tile.AddAsciiSprite("hashtag");
+        tile.isVisible = true;
+
       }
     }
+
+    levelEntity.isUngeneratedLevel = false;
   }
 }
