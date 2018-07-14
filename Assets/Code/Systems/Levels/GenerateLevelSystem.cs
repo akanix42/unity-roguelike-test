@@ -44,7 +44,7 @@ public sealed class GenerateLevelSystem : ReactiveSystem<LevelEntity>
         tile.AddFloor("dirt");
         tile.AddAsset("Tile");
 //    entity.AddAsciiSprite("DejaVuSansMono_2");
-        tile.AddAsciiSprite("hashtag");
+        tile.AddAsciiSprite("dot");
         tile.isVisible = true;
 
       }
