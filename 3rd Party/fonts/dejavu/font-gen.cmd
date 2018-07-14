@@ -1,1 +1,1 @@
-magick convert -background none -gravity center -trim -resize 64x64 -extent 64x64 -fill white -font dejavu.ttf -pointsize 96 label:"#" hashtag.png 
+magick convert -background none -gravity center -trim -resize %3 -extent 64x64 -fill white -font dejavu.ttf -pointsize 96 label:"%1" ..\..\..\Assets\Resources\Text\%2.png
