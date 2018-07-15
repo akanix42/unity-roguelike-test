@@ -4,8 +4,12 @@ using UnityEngine;
 
 public sealed class UnityInputService : IInputService
 {
+  public float keyDelay = 0.2f;
+  private float timeSinceLastKeypress = 0f;
+
   private readonly KeyCode[] _emptyKeyCodes = new KeyCode[0];
   private IEnumerable<KeyCode> _keyCodes;
+
   private List<KeyCode> _modifierKeys = new List<KeyCode>
   {
     KeyCode.LeftShift,
@@ -20,7 +24,7 @@ public sealed class UnityInputService : IInputService
   {
     _keyCodes = _emptyKeyCodes;
   }
-  
+
   public Vector3 mousePosition
   {
     get { return Camera.main.ScreenToWorldPoint(Input.mousePosition); }
@@ -60,27 +64,36 @@ public sealed class UnityInputService : IInputService
   {
     get
     {
+      timeSinceLastKeypress += Time.deltaTime;
+      if (timeSinceLastKeypress < keyDelay)
+        return new GameKey[0];
+
       var isShiftDown = Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift);
       var isAltDown = Input.GetKeyDown(KeyCode.LeftAlt) || Input.GetKeyDown(KeyCode.RightAlt);
       var isControlDown = Input.GetKeyDown(KeyCode.LeftControl) || Input.GetKeyDown(KeyCode.RightControl);
-      
+
       var modifiers = GameKeyModifiers.None;
       if (isAltDown)
       {
         modifiers = modifiers | GameKeyModifiers.AltPressed;
       }
+
       if (isShiftDown)
       {
         modifiers = modifiers | GameKeyModifiers.ShiftPressed;
       }
+
       if (isControlDown)
       {
         modifiers = modifiers | GameKeyModifiers.CtrlPressed;
       }
-      
-      var keysHeld = _keyCodes.Where(Input.GetKey).Except(_modifierKeys);
-//      Debug.Log($"Keys held: {keysHeld.Count()}");
-      return keysHeld.Select(keycode => new GameKey(keycode, modifiers)).ToList();
+
+      var keysHeld = _keyCodes.Where(Input.GetKey).Except(_modifierKeys).Select(keycode => new GameKey(keycode, modifiers)).ToList();
+      if (keysHeld.Any())
+      {
+        timeSinceLastKeypress = 0;
+      }
+      return keysHeld;
     }
   }
 
