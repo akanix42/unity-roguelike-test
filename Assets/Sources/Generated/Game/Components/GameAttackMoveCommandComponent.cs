@@ -11,14 +11,14 @@ public partial class GameEntity {
     public AttackMoveCommand attackMoveCommand { get { return (AttackMoveCommand)GetComponent(GameComponentsLookup.AttackMoveCommand); } }
     public bool hasAttackMoveCommand { get { return HasComponent(GameComponentsLookup.AttackMoveCommand); } }
 
-    public void AddAttackMoveCommand(GameDirection newDirection) {
+    public void AddAttackMoveCommand(IntVector2 newDirection) {
         var index = GameComponentsLookup.AttackMoveCommand;
         var component = CreateComponent<AttackMoveCommand>(index);
         component.direction = newDirection;
         AddComponent(index, component);
     }
 
-    public void ReplaceAttackMoveCommand(GameDirection newDirection) {
+    public void ReplaceAttackMoveCommand(IntVector2 newDirection) {
         var index = GameComponentsLookup.AttackMoveCommand;
         var component = CreateComponent<AttackMoveCommand>(index);
         component.direction = newDirection;

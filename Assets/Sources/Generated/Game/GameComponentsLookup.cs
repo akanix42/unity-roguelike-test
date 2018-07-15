@@ -16,25 +16,24 @@ public static class GameComponentsLookup {
     public const int DebugLog = 5;
     public const int Destroyed = 6;
     public const int DestroyedListener = 7;
-    public const int DirectionUpCommand = 8;
-    public const int DisplayingInventory = 9;
-    public const int Floor = 10;
-    public const int GenerateLevelSystem = 11;
-    public const int Interactive = 12;
-    public const int LogDebugMessageSystem = 13;
-    public const int MainGameScreen = 14;
-    public const int Movable = 15;
-    public const int Position = 16;
-    public const int PositionListener = 17;
-    public const int TargetedByUi = 18;
-    public const int Tile = 19;
-    public const int ViewInventoryCommand = 20;
-    public const int ViewInventoryScreenSystem = 21;
-    public const int Visible = 22;
-    public const int VisibleListener = 23;
-    public const int VisibleRemovedListener = 24;
+    public const int DisplayingInventory = 8;
+    public const int Floor = 9;
+    public const int Interactive = 10;
+    public const int LogDebugMessageSystem = 11;
+    public const int MainGameScreen = 12;
+    public const int Movable = 13;
+    public const int MovementSystem = 14;
+    public const int Position = 15;
+    public const int PositionListener = 16;
+    public const int TargetedByUi = 17;
+    public const int Tile = 18;
+    public const int ViewInventoryCommand = 19;
+    public const int ViewInventoryScreenSystem = 20;
+    public const int Visible = 21;
+    public const int VisibleListener = 22;
+    public const int VisibleRemovedListener = 23;
 
-    public const int TotalComponents = 25;
+    public const int TotalComponents = 24;
 
     public static readonly string[] componentNames = {
         "AsciiSprite",
@@ -45,14 +44,13 @@ public static class GameComponentsLookup {
         "DebugLog",
         "Destroyed",
         "DestroyedListener",
-        "DirectionUpCommand",
         "DisplayingInventory",
         "Floor",
-        "GenerateLevelSystem",
         "Interactive",
         "LogDebugMessageSystem",
         "MainGameScreen",
         "Movable",
+        "MovementSystem",
         "Position",
         "PositionListener",
         "TargetedByUi",
@@ -73,14 +71,13 @@ public static class GameComponentsLookup {
         typeof(DebugLogComponent),
         typeof(DestroyedComponent),
         typeof(DestroyedListenerComponent),
-        typeof(DirectionUpCommand),
         typeof(DisplayingInventoryComponent),
         typeof(FloorComponent),
-        typeof(GenerateLevelSystemComponent),
         typeof(InteractiveComponent),
         typeof(LogDebugMessageSystemComponent),
         typeof(MainGameScreenComponent),
         typeof(MovableComponent),
+        typeof(MovementSystemComponent),
         typeof(PositionComponent),
         typeof(PositionListenerComponent),
         typeof(TargetedByUiComponent),

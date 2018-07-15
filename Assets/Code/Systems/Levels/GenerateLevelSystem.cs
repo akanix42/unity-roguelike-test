@@ -42,7 +42,7 @@ public sealed class GenerateLevelSystem : ReactiveSystem<LevelEntity>
         tile.isTile = true;
         tile.AddPosition(level.id, x, y);
         tile.AddFloor("dirt");
-        tile.AddAsset("Tile");
+        tile.AddAsset("GameBoardElement");
 //    entity.AddAsciiSprite("DejaVuSansMono_2");
         tile.AddAsciiSprite("dot");
         tile.isVisible = true;

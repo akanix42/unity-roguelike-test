@@ -5,13 +5,15 @@ public class Services
   public ISpritesService sprites;
   public LevelService level;
   public ViewService view;
+  public GameEntityService gameEntity;
   
   public Services(
     ILogService log,
     IInputService input,
     ISpritesService sprites,
     LevelService level,
-    ViewService view
+    ViewService view,
+    GameEntityService gameEntity
     )
   {
     this.log = log;
@@ -19,5 +21,6 @@ public class Services
     this.sprites = sprites;
     this.level = level;
     this.view = view;
+    this.gameEntity = gameEntity;
   }
 }

@@ -6,27 +6,27 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-public partial class GameEntity {
+public partial class LevelEntity {
 
-    public GenerateLevelSystemComponent generateLevelSystem { get { return (GenerateLevelSystemComponent)GetComponent(GameComponentsLookup.GenerateLevelSystem); } }
-    public bool hasGenerateLevelSystem { get { return HasComponent(GameComponentsLookup.GenerateLevelSystem); } }
+    public GenerateLevelSystemComponent generateLevelSystem { get { return (GenerateLevelSystemComponent)GetComponent(LevelComponentsLookup.GenerateLevelSystem); } }
+    public bool hasGenerateLevelSystem { get { return HasComponent(LevelComponentsLookup.GenerateLevelSystem); } }
 
     public void AddGenerateLevelSystem(GenerateLevelSystem newValue) {
-        var index = GameComponentsLookup.GenerateLevelSystem;
+        var index = LevelComponentsLookup.GenerateLevelSystem;
         var component = CreateComponent<GenerateLevelSystemComponent>(index);
         component.value = newValue;
         AddComponent(index, component);
     }
 
     public void ReplaceGenerateLevelSystem(GenerateLevelSystem newValue) {
-        var index = GameComponentsLookup.GenerateLevelSystem;
+        var index = LevelComponentsLookup.GenerateLevelSystem;
         var component = CreateComponent<GenerateLevelSystemComponent>(index);
         component.value = newValue;
         ReplaceComponent(index, component);
     }
 
     public void RemoveGenerateLevelSystem() {
-        RemoveComponent(GameComponentsLookup.GenerateLevelSystem);
+        RemoveComponent(LevelComponentsLookup.GenerateLevelSystem);
     }
 }
 
@@ -38,15 +38,15 @@ public partial class GameEntity {
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-public sealed partial class GameMatcher {
+public sealed partial class LevelMatcher {
 
-    static Entitas.IMatcher<GameEntity> _matcherGenerateLevelSystem;
+    static Entitas.IMatcher<LevelEntity> _matcherGenerateLevelSystem;
 
-    public static Entitas.IMatcher<GameEntity> GenerateLevelSystem {
+    public static Entitas.IMatcher<LevelEntity> GenerateLevelSystem {
         get {
             if (_matcherGenerateLevelSystem == null) {
-                var matcher = (Entitas.Matcher<GameEntity>)Entitas.Matcher<GameEntity>.AllOf(GameComponentsLookup.GenerateLevelSystem);
-                matcher.componentNames = GameComponentsLookup.componentNames;
+                var matcher = (Entitas.Matcher<LevelEntity>)Entitas.Matcher<LevelEntity>.AllOf(LevelComponentsLookup.GenerateLevelSystem);
+                matcher.componentNames = LevelComponentsLookup.componentNames;
                 _matcherGenerateLevelSystem = matcher;
             }
 

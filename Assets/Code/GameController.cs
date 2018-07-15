@@ -25,7 +25,9 @@ public class GameController : MonoBehaviour
     _contexts.level.ReplaceLevelId(0);
 
     var level = _services.level.CreateLevel();
-    
+    var player = _services.gameEntity.CreatePlayer();
+    player.ReplacePosition(level.level.id, 0, 0); 
+   
 //    for (var x = 0; x < level.level.columns; x++)
 //    {
 //      for (var y = 0; y < level.level.columns; y++)
@@ -43,7 +45,6 @@ public class GameController : MonoBehaviour
 //      }
 //      
 //    }
-    
   }
 
   void Update()
@@ -59,7 +60,8 @@ public class GameController : MonoBehaviour
       new UnityInputService(),
       new SpritesService(),
       new LevelService(contexts),
-      new ViewService(contexts, gameController.transform)
+      new ViewService(contexts, gameController.transform),
+      new GameEntityService(contexts)
     );
   }
 
@@ -70,10 +72,11 @@ public class GameController : MonoBehaviour
         .Add(new LogDebugMessageSystem(contexts, services.log))
         // Input
         .Add(new InputFeature(contexts, services.input))
-        
+
         // Update
         .Add(new GenerateLevelSystem(contexts))
-        
+        .Add(new MovementSystem(contexts))
+
         // Events
         .Add(new GameEventSystems(contexts))
       ;
