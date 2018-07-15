@@ -8,34 +8,39 @@
 //------------------------------------------------------------------------------
 public static class GameComponentsLookup {
 
-    public const int AsciiSprite = 0;
-    public const int AsciiSpriteListener = 1;
-    public const int Asset = 2;
-    public const int AssetListener = 3;
-    public const int AttackMoveCommand = 4;
-    public const int DebugLog = 5;
-    public const int Destroyed = 6;
-    public const int DestroyedListener = 7;
-    public const int DisplayingInventory = 8;
-    public const int Floor = 9;
-    public const int Interactive = 10;
-    public const int LogDebugMessageSystem = 11;
-    public const int MainGameScreen = 12;
-    public const int Movable = 13;
-    public const int MovementSystem = 14;
-    public const int Position = 15;
-    public const int PositionListener = 16;
-    public const int TargetedByUi = 17;
-    public const int Tile = 18;
-    public const int ViewInventoryCommand = 19;
-    public const int ViewInventoryScreenSystem = 20;
-    public const int Visible = 21;
-    public const int VisibleListener = 22;
-    public const int VisibleRemovedListener = 23;
+    public const int Acting = 0;
+    public const int AI = 1;
+    public const int AsciiSprite = 2;
+    public const int AsciiSpriteListener = 3;
+    public const int Asset = 4;
+    public const int AssetListener = 5;
+    public const int AttackMoveCommand = 6;
+    public const int DebugLog = 7;
+    public const int Destroyed = 8;
+    public const int DestroyedListener = 9;
+    public const int DisplayingInventory = 10;
+    public const int Floor = 11;
+    public const int Interactive = 12;
+    public const int LogDebugMessageSystem = 13;
+    public const int MainGameScreen = 14;
+    public const int Movable = 15;
+    public const int MovementSystem = 16;
+    public const int Position = 17;
+    public const int PositionListener = 18;
+    public const int TargetedByUi = 19;
+    public const int Tile = 20;
+    public const int TurnSpeed = 21;
+    public const int ViewInventoryCommand = 22;
+    public const int ViewInventoryScreenSystem = 23;
+    public const int Visible = 24;
+    public const int VisibleListener = 25;
+    public const int VisibleRemovedListener = 26;
 
-    public const int TotalComponents = 24;
+    public const int TotalComponents = 27;
 
     public static readonly string[] componentNames = {
+        "Acting",
+        "AI",
         "AsciiSprite",
         "AsciiSpriteListener",
         "Asset",
@@ -55,6 +60,7 @@ public static class GameComponentsLookup {
         "PositionListener",
         "TargetedByUi",
         "Tile",
+        "TurnSpeed",
         "ViewInventoryCommand",
         "ViewInventoryScreenSystem",
         "Visible",
@@ -63,6 +69,8 @@ public static class GameComponentsLookup {
     };
 
     public static readonly System.Type[] componentTypes = {
+        typeof(ActingComponent),
+        typeof(AIComponent),
         typeof(AsciiSpriteComponent),
         typeof(AsciiSpriteListenerComponent),
         typeof(AssetComponent),
@@ -82,6 +90,7 @@ public static class GameComponentsLookup {
         typeof(PositionListenerComponent),
         typeof(TargetedByUiComponent),
         typeof(TileComponent),
+        typeof(TurnSpeedComponent),
         typeof(ViewInventoryCommand),
         typeof(ViewInventoryScreenSystemComponent),
         typeof(VisibleComponent),

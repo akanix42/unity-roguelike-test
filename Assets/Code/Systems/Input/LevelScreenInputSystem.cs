@@ -25,6 +25,7 @@ public sealed class LevelScreenInputSystem : IInitializeSystem, IExecuteSystem, 
     _commands = new Dictionary<GameKey, Action>()
     {
       {new GameKey(KeyCode.I), () => ViewInventory()},
+      {new GameKey(KeyCode.Space), () => MakeNpcAct()},
       {new GameKey(KeyCode.Keypad8), () => AddMoveCommand(GameDirections.Up)},
       {new GameKey(KeyCode.Keypad9), () => AddMoveCommand(GameDirections.UpRight)},
       {new GameKey(KeyCode.Keypad6), () => AddMoveCommand(GameDirections.Right)},
@@ -35,6 +36,14 @@ public sealed class LevelScreenInputSystem : IInitializeSystem, IExecuteSystem, 
       {new GameKey(KeyCode.Keypad7), () => AddMoveCommand(GameDirections.UpLeft)},
       {new GameKey(KeyCode.Keypad5), () => AddMoveCommand(GameDirections.Up)},
     };
+  }
+
+  private void MakeNpcAct()
+  {
+    foreach (var gameEntity in _contexts.game.GetGroup(GameMatcher.AI))
+    {
+      gameEntity.isActing = true;
+    }
   }
 
   public void Initialize()

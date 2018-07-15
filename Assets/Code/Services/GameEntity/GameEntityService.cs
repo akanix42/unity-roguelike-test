@@ -17,4 +17,15 @@ public class GameEntityService
     entity.isInteractive = true;
     return entity;
   }
+
+  public GameEntity CreateNpc()
+  {
+    
+    var entity = _contexts.game.CreateEntity();
+    entity.AddAsset("GameBoardElement");
+    entity.AddAsciiSprite("z");
+    entity.isVisible = true;
+    entity.AddAI("MindlessWander");
+    return entity;
+  }
 }

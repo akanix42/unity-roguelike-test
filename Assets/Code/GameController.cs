@@ -28,23 +28,9 @@ public class GameController : MonoBehaviour
     var player = _services.gameEntity.CreatePlayer();
     player.ReplacePosition(level.level.id, 0, 0); 
    
-//    for (var x = 0; x < level.level.columns; x++)
-//    {
-//      for (var y = 0; y < level.level.columns; y++)
-//      {
-//        var entity = _contexts.game.CreateEntity();
-//        entity.isTargetedByUi = true;
-//        entity.AddAsset("Tile");
-////    entity.AddAsciiSprite("DejaVuSansMono_2");
-//        entity.AddAsciiSprite("hashtag");
-//        entity.AddPosition(level.level.id, x, y);
-//        entity.isTile = true;
-//        entity.isVisible = true;
-////    entity.AddVisible(1);
-////    entity.isVisible = false;
-//      }
-//      
-//    }
+    var npc = _services.gameEntity.CreateNpc();
+    npc.ReplacePosition(level.level.id, 1, 1); 
+   
   }
 
   void Update()
@@ -70,9 +56,12 @@ public class GameController : MonoBehaviour
     return new Feature("Systems")
         .Add(new ServiceRegistrationSystem(contexts, services))
         .Add(new LogDebugMessageSystem(contexts, services.log))
-        // Input
+        // User Input
         .Add(new InputFeature(contexts, services.input))
 
+        // AI Input
+        .Add(new AIMindlessWanderSystem(contexts))
+        
         // Update
         .Add(new GenerateLevelSystem(contexts))
         .Add(new MovementSystem(contexts))
