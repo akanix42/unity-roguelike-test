@@ -1,4 +1,5 @@
-﻿using Entitas;
+﻿
+using Entitas;
 using UnityEngine;
 
 public class GameController : MonoBehaviour
@@ -26,11 +27,18 @@ public class GameController : MonoBehaviour
 
     var level = _services.level.CreateLevel();
     var player = _services.gameEntity.CreatePlayer();
-    player.ReplacePosition(level.level.id, 0, 0); 
-   
-    var npc = _services.gameEntity.CreateNpc();
-    npc.ReplacePosition(level.level.id, 1, 1); 
-   
+    player.ReplacePosition(GameBoardElementPosition.Create(level.level.id, 0, 0));
+
+    for (var i = 0; i < 1; i++)
+    {
+      var npc = _services.gameEntity.CreateNpc();
+      npc.ReplacePosition(GameBoardElementPosition.Create(level.level.id, 1, 1));
+    }
+    for (var i = 0; i < 10000; i++)
+    {
+      var npc = _services.gameEntity.CreateInvisibleNpc();
+      npc.ReplacePosition(GameBoardElementPosition.Create(level.level.id, 1, 1));
+    }
   }
 
   void Update()
@@ -64,7 +72,9 @@ public class GameController : MonoBehaviour
         
         // Update
         .Add(new GenerateLevelSystem(contexts))
+        .Add(new MovementCollisionSystem(contexts))
         .Add(new MovementSystem(contexts))
+        .Add(new DebugStopActingSystem(contexts))
 
         // Events
         .Add(new GameEventSystems(contexts))

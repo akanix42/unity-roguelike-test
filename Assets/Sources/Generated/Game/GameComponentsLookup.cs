@@ -14,29 +14,37 @@ public static class GameComponentsLookup {
     public const int AsciiSpriteListener = 3;
     public const int Asset = 4;
     public const int AssetListener = 5;
-    public const int AttackMoveCommand = 6;
-    public const int DebugLog = 7;
-    public const int Destroyed = 8;
-    public const int DestroyedListener = 9;
-    public const int DisplayingInventory = 10;
-    public const int Floor = 11;
-    public const int Interactive = 12;
-    public const int LogDebugMessageSystem = 13;
-    public const int MainGameScreen = 14;
-    public const int Movable = 15;
-    public const int MovementSystem = 16;
-    public const int Position = 17;
-    public const int PositionListener = 18;
-    public const int TargetedByUi = 19;
-    public const int Tile = 20;
-    public const int TurnSpeed = 21;
-    public const int ViewInventoryCommand = 22;
-    public const int ViewInventoryScreenSystem = 23;
-    public const int Visible = 24;
-    public const int VisibleListener = 25;
-    public const int VisibleRemovedListener = 26;
+    public const int AttackCommand = 6;
+    public const int AttackMoveCommand = 7;
+    public const int DebugLog = 8;
+    public const int Destroyed = 9;
+    public const int DestroyedListener = 10;
+    public const int DisplayingInventory = 11;
+    public const int Floor = 12;
+    public const int InitiateAttack = 13;
+    public const int Interactive = 14;
+    public const int LogDebugMessageSystem = 15;
+    public const int MainGameScreen = 16;
+    public const int Movable = 17;
+    public const int MoveAction = 18;
+    public const int MoveCanceled = 19;
+    public const int MoveCommand = 20;
+    public const int MovementCollisionSystem = 21;
+    public const int MovementSystem = 22;
+    public const int PhysicalBarrier = 23;
+    public const int Position = 24;
+    public const int PositionListener = 25;
+    public const int TargetedByUi = 26;
+    public const int Tile = 27;
+    public const int TurnCount = 28;
+    public const int TurnSpeed = 29;
+    public const int ViewInventoryCommand = 30;
+    public const int ViewInventoryScreenSystem = 31;
+    public const int Visible = 32;
+    public const int VisibleListener = 33;
+    public const int VisibleRemovedListener = 34;
 
-    public const int TotalComponents = 27;
+    public const int TotalComponents = 35;
 
     public static readonly string[] componentNames = {
         "Acting",
@@ -45,21 +53,29 @@ public static class GameComponentsLookup {
         "AsciiSpriteListener",
         "Asset",
         "AssetListener",
+        "AttackCommand",
         "AttackMoveCommand",
         "DebugLog",
         "Destroyed",
         "DestroyedListener",
         "DisplayingInventory",
         "Floor",
+        "InitiateAttack",
         "Interactive",
         "LogDebugMessageSystem",
         "MainGameScreen",
         "Movable",
+        "MoveAction",
+        "MoveCanceled",
+        "MoveCommand",
+        "MovementCollisionSystem",
         "MovementSystem",
+        "PhysicalBarrier",
         "Position",
         "PositionListener",
         "TargetedByUi",
         "Tile",
+        "TurnCount",
         "TurnSpeed",
         "ViewInventoryCommand",
         "ViewInventoryScreenSystem",
@@ -75,21 +91,29 @@ public static class GameComponentsLookup {
         typeof(AsciiSpriteListenerComponent),
         typeof(AssetComponent),
         typeof(AssetListenerComponent),
+        typeof(AttackCommand),
         typeof(AttackMoveCommand),
         typeof(DebugLogComponent),
         typeof(DestroyedComponent),
         typeof(DestroyedListenerComponent),
         typeof(DisplayingInventoryComponent),
         typeof(FloorComponent),
+        typeof(InitiateAttack),
         typeof(InteractiveComponent),
         typeof(LogDebugMessageSystemComponent),
         typeof(MainGameScreenComponent),
         typeof(MovableComponent),
+        typeof(MoveActionComponent),
+        typeof(MoveCanceled),
+        typeof(MoveCommand),
+        typeof(MovementCollisionSystemComponent),
         typeof(MovementSystemComponent),
+        typeof(PhysicalBarrierComponent),
         typeof(PositionComponent),
         typeof(PositionListenerComponent),
         typeof(TargetedByUiComponent),
         typeof(TileComponent),
+        typeof(TurnCountComponent),
         typeof(TurnSpeedComponent),
         typeof(ViewInventoryCommand),
         typeof(ViewInventoryScreenSystemComponent),

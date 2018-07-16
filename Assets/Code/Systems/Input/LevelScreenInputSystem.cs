@@ -26,6 +26,7 @@ public sealed class LevelScreenInputSystem : IInitializeSystem, IExecuteSystem, 
     {
       {new GameKey(KeyCode.I), () => ViewInventory()},
       {new GameKey(KeyCode.Space), () => MakeNpcAct()},
+      {new GameKey(KeyCode.Z), () => MakeNpcStopActing()},
       {new GameKey(KeyCode.Keypad8), () => AddMoveCommand(GameDirections.Up)},
       {new GameKey(KeyCode.Keypad9), () => AddMoveCommand(GameDirections.UpRight)},
       {new GameKey(KeyCode.Keypad6), () => AddMoveCommand(GameDirections.Right)},
@@ -43,6 +44,14 @@ public sealed class LevelScreenInputSystem : IInitializeSystem, IExecuteSystem, 
     foreach (var gameEntity in _contexts.game.GetGroup(GameMatcher.AI))
     {
       gameEntity.isActing = true;
+    }
+  }
+
+  private void MakeNpcStopActing()
+  {
+    foreach (var gameEntity in _contexts.game.GetGroup(GameMatcher.AI))
+    {
+      gameEntity.isActing = false;
     }
   }
 
@@ -67,9 +76,11 @@ public sealed class LevelScreenInputSystem : IInitializeSystem, IExecuteSystem, 
 
   private void AddMoveCommand(IntVector2 direction)
   {
-    foreach (var interactiveEntity in _interactiveEntities)
+    foreach (var entity in _interactiveEntities)
     {
-      interactiveEntity.ReplaceAttackMoveCommand(direction);
+      var position = entity.position.value;
+      var targetPosition = GameBoardElementPosition.Create(position.levelId, position.x + direction.x, position.y + direction.y);
+      entity.ReplaceMoveCommand(direction, targetPosition);
     }
   }
 

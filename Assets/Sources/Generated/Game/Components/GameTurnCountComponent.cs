@@ -8,25 +8,25 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    public PositionComponent position { get { return (PositionComponent)GetComponent(GameComponentsLookup.Position); } }
-    public bool hasPosition { get { return HasComponent(GameComponentsLookup.Position); } }
+    public TurnCountComponent turnCount { get { return (TurnCountComponent)GetComponent(GameComponentsLookup.TurnCount); } }
+    public bool hasTurnCount { get { return HasComponent(GameComponentsLookup.TurnCount); } }
 
-    public void AddPosition(GameBoardElementPosition newValue) {
-        var index = GameComponentsLookup.Position;
-        var component = CreateComponent<PositionComponent>(index);
+    public void AddTurnCount(int newValue) {
+        var index = GameComponentsLookup.TurnCount;
+        var component = CreateComponent<TurnCountComponent>(index);
         component.value = newValue;
         AddComponent(index, component);
     }
 
-    public void ReplacePosition(GameBoardElementPosition newValue) {
-        var index = GameComponentsLookup.Position;
-        var component = CreateComponent<PositionComponent>(index);
+    public void ReplaceTurnCount(int newValue) {
+        var index = GameComponentsLookup.TurnCount;
+        var component = CreateComponent<TurnCountComponent>(index);
         component.value = newValue;
         ReplaceComponent(index, component);
     }
 
-    public void RemovePosition() {
-        RemoveComponent(GameComponentsLookup.Position);
+    public void RemoveTurnCount() {
+        RemoveComponent(GameComponentsLookup.TurnCount);
     }
 }
 
@@ -40,17 +40,17 @@ public partial class GameEntity {
 //------------------------------------------------------------------------------
 public sealed partial class GameMatcher {
 
-    static Entitas.IMatcher<GameEntity> _matcherPosition;
+    static Entitas.IMatcher<GameEntity> _matcherTurnCount;
 
-    public static Entitas.IMatcher<GameEntity> Position {
+    public static Entitas.IMatcher<GameEntity> TurnCount {
         get {
-            if (_matcherPosition == null) {
-                var matcher = (Entitas.Matcher<GameEntity>)Entitas.Matcher<GameEntity>.AllOf(GameComponentsLookup.Position);
+            if (_matcherTurnCount == null) {
+                var matcher = (Entitas.Matcher<GameEntity>)Entitas.Matcher<GameEntity>.AllOf(GameComponentsLookup.TurnCount);
                 matcher.componentNames = GameComponentsLookup.componentNames;
-                _matcherPosition = matcher;
+                _matcherTurnCount = matcher;
             }
 
-            return _matcherPosition;
+            return _matcherTurnCount;
         }
     }
 }

@@ -7,7 +7,7 @@ public sealed class GenerateLevelSystem : ReactiveSystem<LevelEntity>
 {
   readonly GameContext _game;
 
-  public GenerateLevelSystem(Contexts contexts): base(contexts.level)
+  public GenerateLevelSystem(Contexts contexts) : base(contexts.level)
   {
     _game = contexts.game;
   }
@@ -27,7 +27,6 @@ public sealed class GenerateLevelSystem : ReactiveSystem<LevelEntity>
     foreach (var entity in entities)
     {
       GenerateLevel(entity);
-      
     }
   }
 
@@ -40,13 +39,12 @@ public sealed class GenerateLevelSystem : ReactiveSystem<LevelEntity>
       {
         var tile = _game.CreateEntity();
         tile.isTile = true;
-        tile.AddPosition(level.id, x, y);
+        tile.AddPosition(GameBoardElementPosition.Create(level.id, x, y));
         tile.AddFloor("dirt");
         tile.AddAsset("GameBoardElement");
 //    entity.AddAsciiSprite("DejaVuSansMono_2");
         tile.AddAsciiSprite("dot");
         tile.isVisible = true;
-
       }
     }
 

@@ -20,11 +20,20 @@ public class GameEntityService
 
   public GameEntity CreateNpc()
   {
-    
     var entity = _contexts.game.CreateEntity();
     entity.AddAsset("GameBoardElement");
     entity.AddAsciiSprite("z");
     entity.isVisible = true;
+    entity.AddAI("MindlessWander");
+    return entity;
+  }
+
+  public GameEntity CreateInvisibleNpc()
+  {
+    var entity = _contexts.game.CreateEntity();
+    entity.AddAsciiSprite("z");
+    entity.isVisible = true;
+    entity.isPhysicalBarrier = true;
     entity.AddAI("MindlessWander");
     return entity;
   }

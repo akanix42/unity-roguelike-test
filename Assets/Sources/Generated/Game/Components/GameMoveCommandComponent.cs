@@ -8,27 +8,27 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    public AttackMoveCommand attackMoveCommand { get { return (AttackMoveCommand)GetComponent(GameComponentsLookup.AttackMoveCommand); } }
-    public bool hasAttackMoveCommand { get { return HasComponent(GameComponentsLookup.AttackMoveCommand); } }
+    public MoveCommand moveCommand { get { return (MoveCommand)GetComponent(GameComponentsLookup.MoveCommand); } }
+    public bool hasMoveCommand { get { return HasComponent(GameComponentsLookup.MoveCommand); } }
 
-    public void AddAttackMoveCommand(IntVector2 newDirection, GameBoardElementPosition newTargetPosition) {
-        var index = GameComponentsLookup.AttackMoveCommand;
-        var component = CreateComponent<AttackMoveCommand>(index);
+    public void AddMoveCommand(IntVector2 newDirection, GameBoardElementPosition newTargetPosition) {
+        var index = GameComponentsLookup.MoveCommand;
+        var component = CreateComponent<MoveCommand>(index);
         component.direction = newDirection;
         component.targetPosition = newTargetPosition;
         AddComponent(index, component);
     }
 
-    public void ReplaceAttackMoveCommand(IntVector2 newDirection, GameBoardElementPosition newTargetPosition) {
-        var index = GameComponentsLookup.AttackMoveCommand;
-        var component = CreateComponent<AttackMoveCommand>(index);
+    public void ReplaceMoveCommand(IntVector2 newDirection, GameBoardElementPosition newTargetPosition) {
+        var index = GameComponentsLookup.MoveCommand;
+        var component = CreateComponent<MoveCommand>(index);
         component.direction = newDirection;
         component.targetPosition = newTargetPosition;
         ReplaceComponent(index, component);
     }
 
-    public void RemoveAttackMoveCommand() {
-        RemoveComponent(GameComponentsLookup.AttackMoveCommand);
+    public void RemoveMoveCommand() {
+        RemoveComponent(GameComponentsLookup.MoveCommand);
     }
 }
 
@@ -42,17 +42,17 @@ public partial class GameEntity {
 //------------------------------------------------------------------------------
 public sealed partial class GameMatcher {
 
-    static Entitas.IMatcher<GameEntity> _matcherAttackMoveCommand;
+    static Entitas.IMatcher<GameEntity> _matcherMoveCommand;
 
-    public static Entitas.IMatcher<GameEntity> AttackMoveCommand {
+    public static Entitas.IMatcher<GameEntity> MoveCommand {
         get {
-            if (_matcherAttackMoveCommand == null) {
-                var matcher = (Entitas.Matcher<GameEntity>)Entitas.Matcher<GameEntity>.AllOf(GameComponentsLookup.AttackMoveCommand);
+            if (_matcherMoveCommand == null) {
+                var matcher = (Entitas.Matcher<GameEntity>)Entitas.Matcher<GameEntity>.AllOf(GameComponentsLookup.MoveCommand);
                 matcher.componentNames = GameComponentsLookup.componentNames;
-                _matcherAttackMoveCommand = matcher;
+                _matcherMoveCommand = matcher;
             }
 
-            return _matcherAttackMoveCommand;
+            return _matcherMoveCommand;
         }
     }
 }

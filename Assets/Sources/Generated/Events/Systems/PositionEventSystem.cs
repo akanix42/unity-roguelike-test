@@ -30,7 +30,7 @@ public sealed class PositionEventSystem : Entitas.ReactiveSystem<GameEntity> {
             _listenerBuffer.Clear();
             _listenerBuffer.AddRange(e.positionListener.value);
             foreach (var listener in _listenerBuffer) {
-                listener.OnPosition(e, component.levelId, component.x, component.y);
+                listener.OnPosition(e, component.value);
             }
         }
     }

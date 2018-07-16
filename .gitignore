@@ -22,3 +22,4 @@ test-results
 roguelike-test.sln
 Assets/Plugins
 Assets/Plugins.meta
+.vs/

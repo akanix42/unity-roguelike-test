@@ -8,25 +8,25 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    public PositionComponent position { get { return (PositionComponent)GetComponent(GameComponentsLookup.Position); } }
-    public bool hasPosition { get { return HasComponent(GameComponentsLookup.Position); } }
+    public MoveCanceled moveCanceled { get { return (MoveCanceled)GetComponent(GameComponentsLookup.MoveCanceled); } }
+    public bool hasMoveCanceled { get { return HasComponent(GameComponentsLookup.MoveCanceled); } }
 
-    public void AddPosition(GameBoardElementPosition newValue) {
-        var index = GameComponentsLookup.Position;
-        var component = CreateComponent<PositionComponent>(index);
-        component.value = newValue;
+    public void AddMoveCanceled(string newReason) {
+        var index = GameComponentsLookup.MoveCanceled;
+        var component = CreateComponent<MoveCanceled>(index);
+        component.reason = newReason;
         AddComponent(index, component);
     }
 
-    public void ReplacePosition(GameBoardElementPosition newValue) {
-        var index = GameComponentsLookup.Position;
-        var component = CreateComponent<PositionComponent>(index);
-        component.value = newValue;
+    public void ReplaceMoveCanceled(string newReason) {
+        var index = GameComponentsLookup.MoveCanceled;
+        var component = CreateComponent<MoveCanceled>(index);
+        component.reason = newReason;
         ReplaceComponent(index, component);
     }
 
-    public void RemovePosition() {
-        RemoveComponent(GameComponentsLookup.Position);
+    public void RemoveMoveCanceled() {
+        RemoveComponent(GameComponentsLookup.MoveCanceled);
     }
 }
 
@@ -40,17 +40,17 @@ public partial class GameEntity {
 //------------------------------------------------------------------------------
 public sealed partial class GameMatcher {
 
-    static Entitas.IMatcher<GameEntity> _matcherPosition;
+    static Entitas.IMatcher<GameEntity> _matcherMoveCanceled;
 
-    public static Entitas.IMatcher<GameEntity> Position {
+    public static Entitas.IMatcher<GameEntity> MoveCanceled {
         get {
-            if (_matcherPosition == null) {
-                var matcher = (Entitas.Matcher<GameEntity>)Entitas.Matcher<GameEntity>.AllOf(GameComponentsLookup.Position);
+            if (_matcherMoveCanceled == null) {
+                var matcher = (Entitas.Matcher<GameEntity>)Entitas.Matcher<GameEntity>.AllOf(GameComponentsLookup.MoveCanceled);
                 matcher.componentNames = GameComponentsLookup.componentNames;
-                _matcherPosition = matcher;
+                _matcherMoveCanceled = matcher;
             }
 
-            return _matcherPosition;
+            return _matcherMoveCanceled;
         }
     }
 }

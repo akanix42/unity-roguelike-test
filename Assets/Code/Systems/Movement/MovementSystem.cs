@@ -1,42 +1,44 @@
 using System.Collections.Generic;
+
 using Entitas;
 using Entitas.Unity;
 
 [Game]
 public sealed class MovementSystem : ReactiveSystem<GameEntity>, ICleanupSystem
 {
-  private readonly IGroup<GameEntity> _entitiesWithMoveCommands;
+  private readonly IGroup<GameEntity> _entitiesWithMoveAction;
 
   public MovementSystem(Contexts contexts) : base(contexts.game)
   {
-    _entitiesWithMoveCommands = contexts.game.GetGroup(GameMatcher.AttackMoveCommand);
+    _entitiesWithMoveAction = contexts.game.GetGroup(GameMatcher.MoveAction);
   }
 
   protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
   {
-    return context.CreateCollector(GameMatcher.AllOf(GameMatcher.Position, GameMatcher.AttackMoveCommand));
+    return context.CreateCollector(GameMatcher.AllOf(GameMatcher.Position, GameMatcher.MoveAction));
   }
 
   protected override bool Filter(GameEntity entity)
   {
-    return entity.hasPosition && entity.hasAttackMoveCommand;
+    return entity.hasPosition && entity.hasMoveAction;
   }
 
   protected override void Execute(List<GameEntity> entities)
   {
     foreach (var entity in entities)
     {
-      var direction = entity.attackMoveCommand.direction;
-      var position = entity.position;
-      entity.ReplacePosition(position.levelId, position.x + direction.x, position.y + direction.y);
+      var position = entity.position.value;
+      var targetPosition = entity.moveAction.targetPosition;
+      
+      entity.ReplacePosition(GameBoardElementPosition.Create(position.levelId, targetPosition.x, targetPosition.y));
     }
   }
 
   public void Cleanup()
   {
-    foreach (var entityWithMoveCommand in _entitiesWithMoveCommands.GetEntities())
+    foreach (var entity in _entitiesWithMoveAction.GetEntities())
     {
-      entityWithMoveCommand.RemoveAttackMoveCommand();
+      entity.RemoveMoveAction();
     }
   }
 }

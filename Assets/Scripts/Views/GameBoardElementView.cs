@@ -1,5 +1,6 @@
 ﻿//using DG.Tweening;
 
+
 using UnityEngine;
 
 public class GameBoardElementView : View
@@ -31,14 +32,14 @@ public class GameBoardElementView : View
   private Sprite _sprite;
   private SpriteRenderer _spriteRenderer;
 
-  public override void OnPosition(GameEntity entity, int levelId, int x, int y)
+  public override void OnPosition(GameEntity entity, GameBoardElementPosition position)
   {
-    Debug.Log($"Set Position: {x},{y}");
+    Debug.Log($"Set Position: {position.x},{position.y}");
 //        var isTopRow = value.y == Contexts.sharedInstance.game.gameBoard.rows - 1;
 //        if (isTopRow) {
 //            transform.localPosition = new Vector3(value.x, value.y + 1);
 //        }
-    transform.position = new Vector3(x, y);
+    transform.position = new Vector3(position.x, position.y);
 //        transform.DOMove(new Vector3(value.x, value.y, 0f), 0.3f);
   }
 
@@ -52,6 +53,7 @@ public class GameBoardElementView : View
 //            .OnComplete(destroy);
     destroy();
   }
+
 //  
 //  public override void OnVisible(GameEntity entity)
 //  {

@@ -1,3 +1,4 @@
+
 using Entitas;
 using Entitas.CodeGeneration.Attributes;
 
@@ -5,7 +6,6 @@ using Entitas.CodeGeneration.Attributes;
 [Event(EventTarget.Self)]
 public sealed class PositionComponent : IComponent
 {
-  public int levelId;
-  public int x;
-  public int y;
+  [EntityIndex]
+  public GameBoardElementPosition value;
 }
