@@ -37,7 +37,7 @@ public class View : MonoBehaviour, IView, IPositionListener, IDestroyedListener,
 
   public virtual void OnVisible(GameEntity entity)
   {
-    Debug.Log("On Visible");
+//    Debug.Log("On Visible");
     var spriteService = Contexts.sharedInstance.meta.spriteService.instance;
     var sprite = spriteService.GetSprite(entity.asciiSprite.value);
     GetComponent<SpriteRenderer>().sprite = sprite;
@@ -45,7 +45,7 @@ public class View : MonoBehaviour, IView, IPositionListener, IDestroyedListener,
 
   public void OnVisibleRemoved(GameEntity entity)
   {
-    Debug.Log("On Not Visible");
+//    Debug.Log("On Not Visible");
     GetComponent<SpriteRenderer>().sprite = null;
   }
 

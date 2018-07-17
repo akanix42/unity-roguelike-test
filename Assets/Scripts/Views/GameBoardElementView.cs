@@ -34,7 +34,7 @@ public class GameBoardElementView : View
 
   public override void OnPosition(GameEntity entity, GameBoardElementPosition position)
   {
-    Debug.Log($"Set Position: {position.x},{position.y}");
+//    Debug.Log($"Set Position: {position.x},{position.y}");
 //        var isTopRow = value.y == Contexts.sharedInstance.game.gameBoard.rows - 1;
 //        if (isTopRow) {
 //            transform.localPosition = new Vector3(value.x, value.y + 1);

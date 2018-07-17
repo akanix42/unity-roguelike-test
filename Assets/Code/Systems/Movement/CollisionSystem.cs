@@ -1,4 +1,6 @@
+using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using Entitas;
 using Entitas.Unity;
@@ -49,9 +51,16 @@ public sealed class MovementCollisionSystem : ReactiveSystem<GameEntity>
       return;
     }
 
+//    UnityEngine.Profiling.Profiler.BeginSample("Retrieve Blockers 2");
+//
+//    var hasBlockers1 = CheckForBlockers2(targetPosition);
+//    
+////      .Any(targetEntity => targetEntity.isPhysicalBarrier);
+//    UnityEngine.Profiling.Profiler.EndSample();
+
     UnityEngine.Profiling.Profiler.BeginSample("Retrieve Blockers");
 
-    var hasBlockers = CheckForBlockers(targetPosition);
+    var hasBlockers = CheckForBlockers2(targetPosition);
     
 //      .Any(targetEntity => targetEntity.isPhysicalBarrier);
     UnityEngine.Profiling.Profiler.EndSample();
@@ -59,25 +68,54 @@ public sealed class MovementCollisionSystem : ReactiveSystem<GameEntity>
     if (hasBlockers)
     {
       entity.ReplaceMoveCanceled("blocked");
-      entity.RemoveMoveCommand();
+//      entity.RemoveMoveCommand();
       return;
     }
     
     entity.AddMoveAction(targetPosition);
   }
 
+  private bool CheckForBlockers2(GameBoardElementPosition position)
+  {
+//    return false;
+    return _gameContext.GetPhysicalBarrierEntitiesWithPosition(position).Count > 0;
+  }
+
   private bool CheckForBlockers(GameBoardElementPosition targetPosition)
   {
+    UnityEngine.Profiling.Profiler.BeginSample("Get Position");
+
     var entities = _gameContext
       .GetEntitiesWithPosition(targetPosition);
-    
+    UnityEngine.Profiling.Profiler.EndSample();
+
+//    int i = 0;
+    UnityEngine.Profiling.Profiler.BeginSample("Iterate count");
+
     foreach (var entity in entities)
     {
       if (entity.isPhysicalBarrier)
       {
         return true;
       }
+//      i++;
     }
+    UnityEngine.Profiling.Profiler.EndSample();
+    
+//    UnityEngine.Profiling.Profiler.BeginSample("Iterate null check");
+//
+//    foreach (var entity in entities)
+//    {
+////      if (entity.isPhysicalBarrier)
+////      {
+////        return true;
+////      }
+//      if (entity == null)
+//      {
+//        return true;
+//      }
+//    }
+//    UnityEngine.Profiling.Profiler.EndSample();
 
     return false;
   }
