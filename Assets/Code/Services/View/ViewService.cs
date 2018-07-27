@@ -22,7 +22,6 @@ public class ViewService : IAssetListener {
 //  }
 
   public void OnAsset(GameEntity entity, string value) {
-    Debug.Log("On Asset!");
     var prefab = Resources.Load<GameObject>($"Prefabs/{value}");
     var view = Object.Instantiate(prefab, _parent).GetComponent<IView>();
     view.Link(entity, _contexts.game);
