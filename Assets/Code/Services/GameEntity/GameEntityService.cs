@@ -15,6 +15,7 @@ public class GameEntityService
     entity.AddAsciiSprite("at-sign");
     entity.isVisible = true;
     entity.isInteractive = true;
+    entity.isCameraTarget = true;
     return entity;
   }
 

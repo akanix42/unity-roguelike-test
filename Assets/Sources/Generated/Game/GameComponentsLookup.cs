@@ -16,35 +16,36 @@ public static class GameComponentsLookup {
     public const int AssetListener = 5;
     public const int AttackCommand = 6;
     public const int AttackMoveCommand = 7;
-    public const int DebugLog = 8;
-    public const int Destroyed = 9;
-    public const int DestroyedListener = 10;
-    public const int DisplayingInventory = 11;
-    public const int Floor = 12;
-    public const int InitiateAttack = 13;
-    public const int Interactive = 14;
-    public const int LogDebugMessageSystem = 15;
-    public const int MainGameScreen = 16;
-    public const int Movable = 17;
-    public const int MoveAction = 18;
-    public const int MoveCanceled = 19;
-    public const int MoveCommand = 20;
-    public const int MovementCollisionSystem = 21;
-    public const int MovementSystem = 22;
-    public const int PhysicalBarrier = 23;
-    public const int Position = 24;
-    public const int PositionListener = 25;
-    public const int TargetedByUi = 26;
-    public const int Tile = 27;
-    public const int TurnCount = 28;
-    public const int TurnSpeed = 29;
-    public const int ViewInventoryCommand = 30;
-    public const int ViewInventoryScreenSystem = 31;
-    public const int Visible = 32;
-    public const int VisibleListener = 33;
-    public const int VisibleRemovedListener = 34;
+    public const int CameraTarget = 8;
+    public const int DebugLog = 9;
+    public const int Destroyed = 10;
+    public const int DestroyedListener = 11;
+    public const int DisplayingInventory = 12;
+    public const int Floor = 13;
+    public const int InitiateAttack = 14;
+    public const int Interactive = 15;
+    public const int LogDebugMessageSystem = 16;
+    public const int MainGameScreen = 17;
+    public const int Movable = 18;
+    public const int MoveAction = 19;
+    public const int MoveCanceled = 20;
+    public const int MoveCommand = 21;
+    public const int MovementCollisionSystem = 22;
+    public const int MovementSystem = 23;
+    public const int PhysicalBarrier = 24;
+    public const int Position = 25;
+    public const int PositionListener = 26;
+    public const int TargetedByUi = 27;
+    public const int Tile = 28;
+    public const int TurnCount = 29;
+    public const int TurnSpeed = 30;
+    public const int ViewInventoryCommand = 31;
+    public const int ViewInventoryScreenSystem = 32;
+    public const int Visible = 33;
+    public const int VisibleListener = 34;
+    public const int VisibleRemovedListener = 35;
 
-    public const int TotalComponents = 35;
+    public const int TotalComponents = 36;
 
     public static readonly string[] componentNames = {
         "Acting",
@@ -55,6 +56,7 @@ public static class GameComponentsLookup {
         "AssetListener",
         "AttackCommand",
         "AttackMoveCommand",
+        "CameraTarget",
         "DebugLog",
         "Destroyed",
         "DestroyedListener",
@@ -93,6 +95,7 @@ public static class GameComponentsLookup {
         typeof(AssetListenerComponent),
         typeof(AttackCommand),
         typeof(AttackMoveCommand),
+        typeof(CameraTarget),
         typeof(DebugLogComponent),
         typeof(DestroyedComponent),
         typeof(DestroyedListenerComponent),

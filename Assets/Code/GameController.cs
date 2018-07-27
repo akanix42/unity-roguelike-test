@@ -75,6 +75,7 @@ public class GameController : MonoBehaviour
         .Add(new MovementCollisionSystem(contexts))
         .Add(new MovementSystem(contexts))
         .Add(new DebugStopActingSystem(contexts))
+        .Add(new FocusCameraSystem(contexts))
 
         // Events
         .Add(new GameEventSystems(contexts))
