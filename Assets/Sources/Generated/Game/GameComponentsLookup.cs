@@ -9,46 +9,51 @@
 public static class GameComponentsLookup {
 
     public const int Acting = 0;
-    public const int AI = 1;
-    public const int AsciiSprite = 2;
-    public const int AsciiSpriteListener = 3;
-    public const int Asset = 4;
-    public const int AssetListener = 5;
-    public const int AttackCommand = 6;
-    public const int AttackMoveCommand = 7;
-    public const int CameraTarget = 8;
-    public const int DebugLog = 9;
-    public const int Destroyed = 10;
-    public const int DestroyedListener = 11;
-    public const int DisplayingInventory = 12;
-    public const int Floor = 13;
-    public const int InitiateAttack = 14;
-    public const int Interactive = 15;
-    public const int LogDebugMessageSystem = 16;
-    public const int MainGameScreen = 17;
-    public const int Movable = 18;
-    public const int MoveAction = 19;
-    public const int MoveCanceled = 20;
-    public const int MoveCommand = 21;
-    public const int MovementCollisionSystem = 22;
-    public const int MovementSystem = 23;
-    public const int PhysicalBarrier = 24;
-    public const int Position = 25;
-    public const int PositionListener = 26;
-    public const int TargetedByUi = 27;
-    public const int Tile = 28;
-    public const int TurnCount = 29;
-    public const int TurnSpeed = 30;
-    public const int ViewInventoryCommand = 31;
-    public const int ViewInventoryScreenSystem = 32;
-    public const int Visible = 33;
-    public const int VisibleListener = 34;
-    public const int VisibleRemovedListener = 35;
+    public const int Actor = 1;
+    public const int AI = 2;
+    public const int AsciiSprite = 3;
+    public const int AsciiSpriteListener = 4;
+    public const int Asset = 5;
+    public const int AssetListener = 6;
+    public const int AttackCommand = 7;
+    public const int AttackMoveCommand = 8;
+    public const int CameraTarget = 9;
+    public const int DebugLog = 10;
+    public const int Destroyed = 11;
+    public const int DestroyedListener = 12;
+    public const int DisplayingInventory = 13;
+    public const int EntityId = 14;
+    public const int Floor = 15;
+    public const int InitiateAttack = 16;
+    public const int Interactive = 17;
+    public const int LogDebugMessageSystem = 18;
+    public const int MainGameScreen = 19;
+    public const int Movable = 20;
+    public const int MoveAction = 21;
+    public const int MoveCanceled = 22;
+    public const int MoveCommand = 23;
+    public const int MovementCollisionSystem = 24;
+    public const int MovementSystem = 25;
+    public const int NextEntityId = 26;
+    public const int PhysicalBarrier = 27;
+    public const int Position = 28;
+    public const int PositionListener = 29;
+    public const int TargetedByUi = 30;
+    public const int Tile = 31;
+    public const int TurnCount = 32;
+    public const int TurnSpeed = 33;
+    public const int TurnSystem = 34;
+    public const int ViewInventoryCommand = 35;
+    public const int ViewInventoryScreenSystem = 36;
+    public const int Visible = 37;
+    public const int VisibleListener = 38;
+    public const int VisibleRemovedListener = 39;
 
-    public const int TotalComponents = 36;
+    public const int TotalComponents = 40;
 
     public static readonly string[] componentNames = {
         "Acting",
+        "Actor",
         "AI",
         "AsciiSprite",
         "AsciiSpriteListener",
@@ -61,6 +66,7 @@ public static class GameComponentsLookup {
         "Destroyed",
         "DestroyedListener",
         "DisplayingInventory",
+        "EntityId",
         "Floor",
         "InitiateAttack",
         "Interactive",
@@ -72,6 +78,7 @@ public static class GameComponentsLookup {
         "MoveCommand",
         "MovementCollisionSystem",
         "MovementSystem",
+        "NextEntityId",
         "PhysicalBarrier",
         "Position",
         "PositionListener",
@@ -79,6 +86,7 @@ public static class GameComponentsLookup {
         "Tile",
         "TurnCount",
         "TurnSpeed",
+        "TurnSystem",
         "ViewInventoryCommand",
         "ViewInventoryScreenSystem",
         "Visible",
@@ -88,6 +96,7 @@ public static class GameComponentsLookup {
 
     public static readonly System.Type[] componentTypes = {
         typeof(ActingComponent),
+        typeof(ActorComponent),
         typeof(AIComponent),
         typeof(AsciiSpriteComponent),
         typeof(AsciiSpriteListenerComponent),
@@ -100,6 +109,7 @@ public static class GameComponentsLookup {
         typeof(DestroyedComponent),
         typeof(DestroyedListenerComponent),
         typeof(DisplayingInventoryComponent),
+        typeof(EntityIdComponent),
         typeof(FloorComponent),
         typeof(InitiateAttack),
         typeof(InteractiveComponent),
@@ -111,6 +121,7 @@ public static class GameComponentsLookup {
         typeof(MoveCommand),
         typeof(MovementCollisionSystemComponent),
         typeof(MovementSystemComponent),
+        typeof(NextEntityIdComponent),
         typeof(PhysicalBarrierComponent),
         typeof(PositionComponent),
         typeof(PositionListenerComponent),
@@ -118,6 +129,7 @@ public static class GameComponentsLookup {
         typeof(TileComponent),
         typeof(TurnCountComponent),
         typeof(TurnSpeedComponent),
+        typeof(TurnSystemComponent),
         typeof(ViewInventoryCommand),
         typeof(ViewInventoryScreenSystemComponent),
         typeof(VisibleComponent),
