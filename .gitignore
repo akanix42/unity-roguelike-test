@@ -23,3 +23,6 @@ roguelike-test.sln
 Assets/Plugins
 Assets/Plugins.meta
 .vs/
+
+/Tests/Tests/bin/
+/Tests/packages/
