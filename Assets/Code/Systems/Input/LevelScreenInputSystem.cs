@@ -80,7 +80,10 @@ public sealed class LevelScreenInputSystem : IInitializeSystem, IExecuteSystem, 
     {
       var position = entity.position.value;
       var targetPosition = GameBoardElementPosition.Create(position.levelId, position.x + direction.x, position.y + direction.y);
-      entity.ReplaceMoveCommand(direction, targetPosition);
+      if (targetPosition != null)
+      {
+        entity.ReplaceMoveCommand(direction, targetPosition);
+      }
     }
   }
 
